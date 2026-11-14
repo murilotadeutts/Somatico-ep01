@@ -1,6 +1,14 @@
 # Atividade Amostras Extras (Pipeline Variantes Somáticas)
 
-# Antes de Começar:
+Este pipeline responde à primeira pergunta da análise somática: quais alterações aparecem nas leituras do tumor e têm evidência suficiente para seguir para a anotação?
+
+O pipeline passou pelas seguintes etapas:
+
+1. Preparação da Referência
+2. Chamada com Mutect2
+3. Estimativa de Contaminação e Filtragem
+
+# Antes de Começar: 
 ## Link para acessar os arquivos BAM:
 ```
 https://github.com/renatopuga/somatico
@@ -53,9 +61,9 @@ cat hg19.fa.fai
 
 #### Exemplo de Saída Esperada:
 ```
-13      115169878       4       50      51
-
-19      59128983        117473284       50      51
+| 13 | 115169878 | 4         | 50 | 51 |
+|----|-----------|-----------|----|----|
+| 19 | 59128983  | 117473284 | 50 | 51 |
 ```
 ### Criar o dicionário da referencia:
 
@@ -203,9 +211,9 @@ cat WP190.contamination.table
 
 #### Exemplo de Saída Esperada:
 ```
-sample  contamination   error
-
-WP190   0.0     4.76837158203125E-7
+| sample | contamination | error               |
+|--------|---------------|---------------------|
+| WP190  | 0.0           | 4.76837158203125E-7 |
 ```
 ### Filtrar as chamadas do par WP190/WP191:
 
@@ -326,9 +334,9 @@ cat WP017.contamination.table
 
 #### Exemplo de Saída Esperada:
 ```
-sample  contamination   error
-
-WP017   0.08101101749837979     0.23686839645163477
+| sample | contamination       | error               |
+|--------|---------------------|---------------------|
+| WP017  | 0.08101101749837979 | 0.23686839645163477 |
 ```
 ### Filtrar as chamadas do par WP017/WP018:
 
